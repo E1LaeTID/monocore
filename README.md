@@ -1,5 +1,11 @@
 # Monocore
 
+**[Découvrir com-non-verbale.fr →](https://com-non-verbale.fr/)**
+
+[Présentation et téléchargements de Monocore](https://com-non-verbale.fr/monocore) · [Communication en équipe avec la Room](https://com-non-verbale.fr/equipes)
+
+Ce dépôt présente la conception et l’évolution de Monocore. Le site com-non-verbale.fr réunit la présentation du service, les démonstrations disponibles et les retours des groupes.
+
 > **État du dépôt : documentation initiale.** Le code des deux applications et les exécutables restent dans les archives livrées séparément ; ils ne sont pas encore importés dans ce dépôt. Les versions et validations ci-dessous décrivent ces archives, pas des exécutables publiés ici.
 
 **Le navigateur non verbal. Une carte de services préparée pour les personnes qui l’utilisent.**
