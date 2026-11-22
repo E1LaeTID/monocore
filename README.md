@@ -11,7 +11,7 @@ Le projet s’adresse notamment aux voyageurs, aux nouveaux arrivants et aux per
 
 ## Un premier cas concret : origine, position actuelle, prochaine destination
 
-La démonstration **Monocore 0.5.0** ajoute un bandeau supérieur avec **une à trois horloges**, visibles pendant l’exploration de la carte et la consultation d’un site.
+La démonstration **Monocore 0.5.1** ajoute un bandeau supérieur avec **une à trois horloges**, visibles pendant l’exploration de la carte et la consultation d’un site.
 
 | Position | Repère affiché |
 |---|---|
@@ -24,6 +24,14 @@ Chaque horloge affiche une heure sur 24 h, une date complète, le fuseau et son 
 **Préparer un trajet entre Paris, New York et Tokyo devient un exemple concret : retrouver une destination sur la carte tout en gardant les dates locales à portée de regard.** Le bandeau aide à comparer les repères ; il ne réalise ni ne corrige une réservation. L’heure et le fuseau annoncés par le prestataire restent à vérifier.
 
 Les réglages sont enregistrés sur l’appareil. Aucune géolocalisation, aucun compte et aucun appel à une API de localisation ne sont nécessaires aux horloges. Le fuseau de l’appareil n’est pas une preuve de votre emplacement et l’heure affichée dépend de son horloge système.
+
+## Réglages simplifiés dans la version 0.5.1
+
+Saisissez une **ville, un pays ou un décalage UTC**, puis choisissez le résultat. Les accents et noms alternatifs sont reconnus ; le pays et la région distinguent les homonymes. Les résultats indiquent `UTC+01:00`, `UTC-05:00` ou des décalages avec minutes, ainsi que l’écart avec l’horloge actuelle.
+
+Le dictionnaire hors ligne adapte **237 338 villes et localités** de GeoNames cities500 et plus de **1,26 million de noms/variantes**. Il n’est pas exhaustif ; le choix direct du fuseau reste disponible. Attribution : [GeoNames, CC BY 4.0](https://download.geonames.org/export/dump/readme.txt).
+
+L’installateur Windows propose **Mettre à jour / réinstaller** une installation enregistrée pour le compte courant, ou créer une **installation indépendante** dans un autre dossier avec son propre profil. L’assistant est compilé ; son déroulement graphique reste à valider sur Windows. Voir [le guide de recherche et d’installation](docs/09-RECHERCHE-LIEUX-ET-INSTALLATION.md).
 
 ## Garder le cap : la prochaine étape du projet
 
@@ -38,7 +46,7 @@ Le futur mode restreint devra contrôler les adresses et les redirections, signa
 | Élément | État |
 |---|---|
 | Carte non verbale et catalogue de démonstration | Disponible : 24 familles, 171 sous-catégories, 489 références |
-| Horloges et dates de trois positions au maximum | Disponible dans les distributions 0.5.0 livrées pour mise en ligne |
+| Horloges et dates de trois positions au maximum | Disponible dans les distributions 0.5.1 livrées pour mise en ligne |
 | Windows x64, Linux x64, macOS Intel et Apple Silicon | Distributions de démonstration non signées ; macOS non notarié |
 | Service Room de com-non-verbale | Essai des échanges et disponibilités depuis le site |
 | Atelier de revue collective des URL | Prototype distinct préparé dans l’archive Room 0.17.0 ; pas ajouté au site existant par cette mise à jour |
