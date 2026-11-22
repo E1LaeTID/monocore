@@ -1,0 +1,16 @@
+node_modules/
+.env
+.env.*
+!.env.example
+!.env.production.example
+dist/
+executables/
+*.exe
+*.AppImage
+*.dmg
+*.zip
+*.tar.gz
+*.log
+.DS_Store
+exports/
+private/
