@@ -1,82 +1,73 @@
-# Monocore
+# Monocore — votre carte de navigation, vos repères de voyage
 
-**[Découvrir com-non-verbale.fr →](https://com-non-verbale.fr/)**
+**Vous changez de pays. Retrouvez vos repères, aussi sur le Web.**
 
-[Présentation et téléchargements de Monocore](https://com-non-verbale.fr/monocore) · [Communication en équipe avec la Room](https://com-non-verbale.fr/equipes)
+**[Découvrir et tester Monocore sur com-non-verbale.fr →](https://com-non-verbale.fr/monocore)**  
+[Découvrir le service en équipe](https://com-non-verbale.fr/equipes) · [Site du projet](https://com-non-verbale.fr/)
 
-Ce dépôt présente la conception et l’évolution de Monocore. Le site com-non-verbale.fr réunit la présentation du service, les démonstrations disponibles et les retours des groupes.
+À l’arrivée dans une ville, une carte aide à retrouver les transports, le logement et les services essentiels. Monocore transpose cette idée aux destinations en ligne : des familles de pictogrammes et des chemins visuels pour explorer les services utiles sans saisir une adresse dans une barre URL.
 
-> **État du dépôt : documentation initiale.** Le code des deux applications et les exécutables restent dans les archives livrées séparément ; ils ne sont pas encore importés dans ce dépôt. Les versions et validations ci-dessous décrivent ces archives, pas des exécutables publiés ici.
+Le projet s’adresse notamment aux voyageurs, aux nouveaux arrivants et aux personnes qui souhaitent naviguer avec des repères plus simples dans leur propre pays. Les pictogrammes doivent être appris et testés avec les personnes concernées : ils ne constituent pas un langage universel automatiquement compris.
 
-**Le navigateur non verbal. Une carte de services préparée pour les personnes qui l’utilisent.**
+## Un premier cas concret : origine, position actuelle, prochaine destination
 
-Pour rejoindre un lieu, une carte montre des repères et des chemins. Sur le Web, Monocore applique cette idée aux services en ligne : choisir une famille de pictogrammes, explorer ses sous-catégories, puis rejoindre une destination.
+La démonstration **Monocore 0.5.0** ajoute un bandeau supérieur avec **une à trois horloges**, visibles pendant l’exploration de la carte et la consultation d’un site.
 
-Il devient possible de retrouver un service sans mémoriser son adresse ni saisir une recherche. Les URL continuent à fonctionner en dessous de l’interface. Les navigateurs habituels proposent déjà favoris et protections : Monocore ajoute une organisation visuelle du parcours et, dans cette nouvelle variante Room, une préparation collective des destinations.
+| Position | Repère affiché |
+|---|---|
+| Origine — facultative | Heure et date du fuseau de départ, conservé comme référence |
+| Actuel — toujours affiché | Heure et date du fuseau de l’appareil ou d’un fuseau choisi manuellement |
+| Prochaine destination — facultative | Heure et date du lieu que vous préparez |
 
-## Deux projets complémentaires
+Chaque horloge affiche une heure sur 24 h, une date complète, le fuseau et son décalage UTC. Un repère J−1/J+1 indique les différences de date par rapport à la position actuelle ; les cas extrêmes traversant la ligne de changement de date sont également pris en charge.
 
-| Composant | Fonction disponible | État |
-|---|---|---|
-| `monocore/` | Application Electron, carte sans barre de saisie URL, catalogue local | Démonstration 0.4.1 |
-| `ordia-room/` | Service com-non-verbale, échanges et disponibilités en équipe | Base 0.16.2 conservée |
-| Room : atelier de navigation | Proposer une URL, recueillir les décisions, exporter les destinations approuvées | Prototype ajouté, 0.17.0 |
-| Monocore restreint | Importer une carte authentifiée et bloquer les destinations non prévues | À développer et à auditer |
+**Préparer un trajet entre Paris, New York et Tokyo devient un exemple concret : retrouver une destination sur la carte tout en gardant les dates locales à portée de regard.** Le bandeau aide à comparer les repères ; il ne réalise ni ne corrige une réservation. L’heure et le fuseau annoncés par le prestataire restent à vérifier.
 
-La démonstration Monocore compte 24 familles, 171 sous-catégories et 489 références éditoriales. Chacune des sous-catégories contient au moins trois domaines distincts. Ces références ne constituent pas une liste de partenaires ni de services certifiés ; les accès peuvent évoluer depuis leur contrôle ponctuel.
+Les réglages sont enregistrés sur l’appareil. Aucune géolocalisation, aucun compte et aucun appel à une API de localisation ne sont nécessaires aux horloges. Le fuseau de l’appareil n’est pas une preuve de votre emplacement et l’heure affichée dépend de son horloge système.
 
-## À quoi cela peut servir ?
+## Garder le cap : la prochaine étape du projet
 
-- **Arriver dans un pays** : retrouver des services locaux choisis avec un organisme d’accueil — transport, démarches, apprentissage linguistique, soins. Le pays est un contexte choisi, pas une autorisation administrative déduite automatiquement.
-- **Apprendre ou naviguer accompagné** : préparer avec l’enfant ou la personne concernée une carte adaptée aux activités prévues, puis tester la compréhension des repères.
-- **Organiser un groupe** : regrouper les services utiles à un objectif et examiner ensemble les destinations avant de distribuer la carte.
+L’ambition est de proposer des cartes par destination, préparées pour un besoin, une langue et une durée : transports, démarches, hébergement, apprentissage, services de proximité. La personne pourrait rejoindre les services examinés sans devoir suivre une succession de liens inconnus.
 
-**La promesse est de mieux s’orienter et de réduire les choix non vérifiés. Ce prototype ne supprime pas le risque d’arnaque.** Un site approuvé peut être trompeur, compromis ou changer. La version actuelle laisse aussi suivre des liens HTTPS hors du catalogue. Elle n’est donc pas encore un contrôle parental, un navigateur verrouillé ou un dispositif de sécurité certifié.
+Le futur mode restreint devra contrôler les adresses et les redirections, signaler un changement de destination et empêcher une sortie non autorisée. Son objectif est de réduire le risque de détournement du parcours et de demandes d’informations trompeuses. Ce filtrage doit être appliqué dans le navigateur, pas seulement représenté par un pictogramme.
 
-## Essayer
+**Aujourd’hui, le catalogue est une démonstration éditoriale, pas une distribution de destinations certifiées. Le blocage hors carte, la signature des cartes et la validation collective pour une diffusion fiable ne sont pas encore activés dans Monocore.** Une carte ne garantit pas l’absence de fraude et ne remplace pas les protections habituelles du navigateur ou de l’appareil.
 
-### Carte Monocore
+## Ce qui est disponible, ce qui reste à construire
 
-Avec Node.js installé :
+| Élément | État |
+|---|---|
+| Carte non verbale et catalogue de démonstration | Disponible : 24 familles, 171 sous-catégories, 489 références |
+| Horloges et dates de trois positions au maximum | Disponible dans les distributions 0.5.0 livrées pour mise en ligne |
+| Windows x64, Linux x64, macOS Intel et Apple Silicon | Distributions de démonstration non signées ; macOS non notarié |
+| Service Room de com-non-verbale | Essai des échanges et disponibilités depuis le site |
+| Atelier de revue collective des URL | Prototype distinct préparé dans l’archive Room 0.17.0 ; pas ajouté au site existant par cette mise à jour |
+| Cartes de destination signées et révocables | À développer |
+| Blocage des redirections et URL hors carte | À développer et à auditer |
 
-```sh
-cd monocore
-npm ci
-npm start
-```
+Le dépôt GitHub contient actuellement la documentation. Les sources complètes et les distributions sont livrées séparément ; les téléchargements du site dépendent de leur installation par l’éditeur. Aucune release binaire GitHub n’est annoncée ici.
 
-Sous PowerShell, employer `npm.cmd`. Pour l’aperçu dans un navigateur habituel, ouvrir `monocore/ui/preview.html`. Les liens y ouvrent des onglets habituels.
+## Développeurs : construisons des Monocore pour les voyageurs
 
-Les distributions Windows, Linux et macOS de la démonstration 0.4.1 ont été préparées séparément. Elles ne contiennent pas le nouvel atelier Room et ne sont pas reconstruites dans ce dossier. Voir [les instructions de packaging](monocore/docs/CONSTRUIRE_DISTRIBUTIONS.md). Aucun lien de release GitHub n’est inventé dans ce dépôt préparatoire.
+Nous invitons les développeurs, structures d’accueil et personnes concernées à tester ce premier parcours sur [com-non-verbale.fr](https://com-non-verbale.fr/monocore), puis à proposer des améliorations dans ce dépôt.
 
-### Room et atelier des destinations
+- Concevoir des cartes locales adaptées à des tâches concrètes et tester la compréhension des signes.
+- Examiner des services de référence et leurs conditions d’accès sans les présenter comme partenaires sans accord.
+- Définir un registre de domaines, des contrôles humains et une publication signée avec retrait des destinations obsolètes.
+- Tester les redirections, les domaines ressemblants et les parcours d’authentification avant de présenter un mode comme restreint.
+- Améliorer l’accessibilité, les langues et les retours des utilisateurs sans collecter leur navigation par défaut.
 
-```sh
-cd ordia-room
-npm ci
-npm start
-```
+Le domaine actuel héberge la démonstration et les essais. Une évolution vers un service de cartes selon la destination reste à concevoir ; aucun nouveau domaine ni nouveau standard de balisage n’est déjà établi.
 
-Ouvrir `http://localhost:8100`, démarrer une room, inviter un autre profil et confirmer la lecture de l’introduction. Dans la room, déplier **« Monocore · Préparer la carte de navigation du groupe »**.
+## Documentation
 
-1. Proposer le nom du service, son URL HTTPS et la raison de son ajout.
-2. Les profils présents au moment de la proposition deviennent les relecteurs de cette proposition.
-3. Chacun approuve, émet une objection ou s’abstient. L’abstention ne vaut pas accord.
-4. Le responsable peut exporter les destinations approuvées par tous les relecteurs. Il ne peut pas passer outre un vote manquant ou une objection.
-5. Le fichier exporté reste un **brouillon JSON non signé**, non importé automatiquement dans Monocore.
-
-Tout le nouvel atelier reste en mémoire dans la room : aucune nouvelle table ni inscription commerciale n’est ajoutée. L’atelier est perdu à la fermeture, à l’expiration ou au redémarrage du serveur. Les stockages des bilans déjà existants conservent leurs règles propres.
-
-## Lire la documentation
-
-- [Comprendre l’intérêt de la carte](docs/01-EXPLIQUER-LA-CARTE.md)
-- [Parcours et règles de la Room](docs/02-ROOM-VALIDATION.md)
+- [Horloges et dates du voyage](docs/08-HORLOGES-VOYAGE.md)
+- [Comprendre la carte](docs/01-EXPLIQUER-LA-CARTE.md)
+- [Room et revue collective](docs/02-ROOM-VALIDATION.md)
 - [Architecture et endpoints](docs/03-ARCHITECTURE-API.md)
-- [Conception de la future navigation restreinte](docs/04-MODE-RESTREINT.md)
-- [Identifiants, domaines et pictogrammes](docs/05-IDENTIFICATION-DOMAINES.md)
-- [Feuille de route et essais utilisateurs](docs/06-ROADMAP.md)
-- [Préparer la publication sur GitHub](docs/07-PUBLICATION-GITHUB.md)
-- [Sécurité et limites](SECURITY.md)
-- [Contribuer](CONTRIBUTING.md) · [Périmètre des licences](LICENSES.md)
+- [Exigences du futur mode restreint](docs/04-MODE-RESTREINT.md)
+- [Identification des domaines](docs/05-IDENTIFICATION-DOMAINES.md)
+- [Feuille de route](docs/06-ROADMAP.md)
+- [Sécurité et limites](SECURITY.md) · [Contribuer](CONTRIBUTING.md) · [Licences](LICENSES.md)
 
 Contact : [pascal@com-non-verbale.fr](mailto:pascal@com-non-verbale.fr).
